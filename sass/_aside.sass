@@ -1,0 +1,56 @@
+/***************    inicia header   ***************/
+@use 'mixin' as mix
+@use 'variables' as *
+
+.aside
+    height: 100vh
+.header
+    background: $black
+    position: fixed
+    z-index: 999
+.title-aside
+    color: $white
+    text-align: center
+    font-size: 1.6rem
+    padding: .6rem
+.title-aside:hover
+    transition: all 3s ease-in-out
+    color: #f80000
+.logo
+    @include mix.center
+    padding: 1.1rem
+    &__img
+        width: 10rem
+        border-radius: 7rem
+.social
+    @include mix.row
+    justify-content: center
+    margin-top: 1.5rem
+    &__icons
+    &__icon
+    &__svg
+        width: 2.8rem
+    &__svg:hover
+        transform: scale(1.4)  
+        transition: all .6s ease-in-out
+/***************** inicia navbar *******************/
+.nav
+    @include mix.center
+    &__menu
+    &__items
+        list-style: none
+        margin-top: 2rem
+        padding: .3rem
+    &__links:hover
+        color: $blueM
+        transition: all .4s ease-in-out
+    &__links
+        color:  $white
+        font-size: 1.19rem
+        text-decoration: none
+        display: flex
+        align-items: flex-end
+    &__link-img
+        width: 1.2rem
+        padding-bottom: .15rem
+    
