@@ -1,3 +1,4 @@
+@use 'mixin' as mix
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap')
 *
@@ -9,13 +10,7 @@ body
     font-size: 62.5%  
     font-family:  'Montserrat', sans-serif 
     background: #000
-    overflow-y: hidden
-    display: flex
-    flex-direction: row
-    width: 162.5rem
-    height: 100vh
-    
-    position: relative
+    @include mix.size(100vw,100vh)
     scrollbar-width: none
 ::-webkit-scrollbar
     display: none
@@ -23,5 +18,73 @@ body
     position: absolute
     width: 15rem
     bottom: 1rem
-    left: 7.5rem
+    left: 2rem
     z-index: 999  
+    animation: float 2s ease-in-out infinite
+
+/*******************Background estrellas movimiento************************/
+    
+@function multiple-box-shadow ($n) 
+    $value: '#{random(4000)}px #{random(40000)}px #FFF'
+    @for $i from 2 through $n
+        $value: '#{$value} , #{random(4000)}px #{random(4000)}px #FFF'
+
+    @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(850)
+$shadows-medium: multiple-box-shadow(350)
+$shadows-big:    multiple-box-shadow(250)
+
+.stars
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $shadows-small
+    animation: animStar 20s linear infinite
+    &:after
+    content: " "
+    // position: absolute
+    top: 2000px
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $shadows-small
+    
+.stars2
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $shadows-medium
+    animation: animStar 20s linear infinite
+    &:after
+    content: " "
+    top: 2000px
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $shadows-medium
+    
+.stars3
+    width: 3px
+    height: 3px
+    background: transparent
+    box-shadow: $shadows-big
+    animation: animStar 20s linear infinite
+    &:after
+    content: " "
+    top: 2000px
+    width: 3.5px
+    height: 3px
+    background: transparent
+    box-shadow: $shadows-big
+    
+@keyframes animStar
+    from	
+        transform: translateY(-500px)
+    to		
+        transform: translateY(+0px)
+@keyframes animStarY 
+    from	
+        transform: translateY(-500px)
+    to		
+        transform: translateY(+0px)

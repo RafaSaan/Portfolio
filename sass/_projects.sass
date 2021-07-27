@@ -2,14 +2,76 @@
 @use 'variables' as *
 
 .projects
-    width: 80vw
-    height: 100vh
-    display: flex
+    @include mix.size(80%,auto)
+    margin-left: 15rem
+    // display: flex
     color: #fff
-    flex-direction: column
-    align-items: center
+    // flex-direction: column
+    // align-items: center
     &__title
         font-size: $h3Title
-        margin-top: 3.125rem
-    &__subtitle
-        margin-top: 15rem
+        text-align: center
+        margin: 1.2rem
+    &__container
+        @include mix.size(100%,100%)
+        display: grid
+        grid-template-columns: repeat(auto-fit,minmax(20rem,1fr))
+        gap: 1rem
+        justify-items: center
+        justify-content: center
+    &__item
+        @include mix.size(330px,200px)
+        font-family: 'Space Mono', monospace
+        background: #fff
+        display: flex
+        flex-direction: row
+        color: #000
+    &__item:hover
+        transform: scale(.99)
+        transition: all 1s ease-in-out
+    &__img__container
+    &__info
+        width: 50%
+        display: flex
+        align-items: center
+        flex-direction: column
+    &__info__title
+        @include mix.size(140px,45px)
+        font-size: 16px
+        margin-bottom: .3rem
+    &__info__paragraph
+        font-size: 10.2px
+        @include mix.size(146px,75px)
+    &__info__tech
+        @include mix.size(154px,28px)
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+    &__info__tech__title
+        font-size: 9px
+        color: #fff
+    &__info__HTML, &__info__SASS, &__info__JS
+        @include mix.center
+        @include mix.size(40px,15px)
+        border-radius: 1rem
+        background: #000
+        font-family:'Montserrat', sans-serif 
+    &__info__HTML:hover, &__info__SASS:hover, &__info__JS:hover
+        transform: scale(1.1)
+        cursor: pointer
+        transition: all 1s ease-in-out
+    &__info__JS
+        width: 61px
+    &__info__links
+        @include mix.size(80%,32px)
+        margin: .3rem auto
+        display: flex
+        flex-direction: column
+    &__info__link
+        text-decoration: none
+        color: #0D66D0
+        font-size: 12px
+    
+    
+
